@@ -1,0 +1,8 @@
+vim.keymap.set("i", "jj", "<Esc>", { silent = true, nowait = true })
+vim.keymap.set("i", "jk", "<Esc>", { silent = true, nowait = true })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+vim.keymap.set("t", "<leader>t", [[<C-\><C-n><cmd>ToggleTerm<cr>]])

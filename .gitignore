@@ -1,0 +1,14 @@
+# Lazy.nvim plugins (DO NOT COMMIT)
+lazy/
+
+# Lazy lock/state
+lazy-lock.json
+lazy-state.json
+
+# LSP / cache
+*.log
+null-ls*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
