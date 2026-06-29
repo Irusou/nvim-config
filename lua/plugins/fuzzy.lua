@@ -5,6 +5,15 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
+      require("telescope").setup({
+        defaults = {
+          file_ignore_patterns = {
+            "^%.git/",
+            "^%.git\\",
+          },
+        },
+      })
+
       local builtin = require("telescope.builtin")
 
       vim.keymap.set("n", "<leader>ff", builtin.find_files)
