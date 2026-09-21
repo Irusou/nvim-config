@@ -7,6 +7,7 @@ require("mason-lspconfig").setup({
     "gopls",
     "jsonls",
     "lua_ls",
+    "emmet_language_server"
   },
 })
 
@@ -32,12 +33,17 @@ vim.lsp.config("jsonls", {
   capabilities = capabilities
 })
 
+vim.lsp.config("emmet_language_server", {
+  capabilities = capabilities
+})
+
 vim.lsp.enable({
   "lua_ls",
   "ts_ls",
   "rust_analyzer",
   "gopls",
   "jsonls",
+  "emmet_language_server",
 })
 
 vim.diagnostic.config({

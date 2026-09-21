@@ -8,3 +8,4 @@ vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
 vim.keymap.set("t", "<leader>t", [[<C-\><C-n><cmd>ToggleTerm<cr>]])
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 --vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true })
+vim.g.user_emmet_expandabbr_key = "<Tab>"
