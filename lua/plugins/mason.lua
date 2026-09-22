@@ -1,5 +1,5 @@
 return {
-    -- Mason (installs LSPs/tools)
+  -- Mason (installs LSPs/tools)
   {
     "williamboman/mason.nvim",
     config = true,
