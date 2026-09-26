@@ -1,3 +1,5 @@
+vim.keymap.set("n", "j", "gj", { silent = true, nowait = true })
+vim.keymap.set("n", "k", "gk", { silent = true, nowait = true })
 vim.keymap.set("i", "jj", "<Esc>", { silent = true, nowait = true })
 vim.keymap.set("i", "jk", "<Esc>", { silent = true, nowait = true })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
