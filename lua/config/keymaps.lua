@@ -11,3 +11,9 @@ vim.keymap.set("t", "<leader>\\", [[<C-\><C-n><cmd>ToggleTerm<cr>]])
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 --vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true })
 vim.g.user_emmet_expandabbr_key = "<Tab>"
+
+-- theme switcher keymaps
+local switcher = require("config.theme_switcher")
+vim.keymap.set("n", "<leader>tn", switcher.next_theme, { desc = "Next theme" })
+vim.keymap.set("n", "<leader>tp", switcher.prev_theme, { desc = "Prev theme" })
+vim.keymap.set("n", "<leader>tt", switcher.pick_theme, { desc = "Pick theme" })
