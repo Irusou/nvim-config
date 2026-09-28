@@ -25,3 +25,7 @@ opt.splitbelow = true
 
 opt.clipboard = "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
+
+vim.env.CC = "gcc"
+vim.env.CXX = "g++"
+vim.diagnostic.config({ virtual_text = true })
