@@ -4,11 +4,14 @@ return {
     branch = "master",
     build = ":TSUpdate",
     event = { "BufReadPre", "BufNewFile" },
-    ensure_installed = { "lua", "javascript", "typescript", "go", "html", "prisma", "c_sharp", "razor" },
-
+cmd = { "TSInstall", "TSUpdate", "TSInstallInfo", "TSUninstall" },
     config = function()
       require("nvim-treesitter.configs").setup({
-
+        ensure_installed = {
+          "lua", "javascript", "typescript", "tsx", "go", "html", "css",
+          "prisma", "c_sharp", "razor",
+          "c", "rust", "python",
+        },
 
         highlight = {
           enable = true,
