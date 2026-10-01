@@ -21,11 +21,8 @@ return {
         "lua-language-server",
         "prisma-language-server",
         "python-lsp-server",
-        "roslyn-language-server",
         "rust-analyzer",
         "typescript-language-server",
-        "roslyn",
-        "rzls"
       },
     }
   },
