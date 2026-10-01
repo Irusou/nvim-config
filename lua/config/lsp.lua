@@ -7,7 +7,8 @@ require("mason-lspconfig").setup({
     "gopls",
     "jsonls",
     "lua_ls",
-    "emmet_language_server"
+    "emmet_language_server",
+    "roslyn_ls"
   },
 })
 
@@ -37,6 +38,10 @@ vim.lsp.config("emmet_language_server", {
   capabilities = capabilities
 })
 
+vim.lsp.config("roslyn_ls", {
+  capabilities = capabilities
+})
+
 vim.lsp.enable({
   "lua_ls",
   "ts_ls",
@@ -44,6 +49,7 @@ vim.lsp.enable({
   "gopls",
   "jsonls",
   "emmet_language_server",
+  "roslyn_ls"
 })
 
 vim.diagnostic.config({
@@ -53,6 +59,6 @@ vim.diagnostic.config({
   },
   signs = true,     -- gutter icons
   underline = true, -- underline errors
-  update_in_insert = false,
+  update_in_insert = true,
   severity_sort = true,
 })
