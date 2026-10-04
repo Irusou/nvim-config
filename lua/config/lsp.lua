@@ -62,13 +62,13 @@ vim.lsp.enable({
   "roslyn"
 })
 
-vim.diagnostic.config({
-  virtual_text = {
-    prefix = "●",
-    spacing = 2,
-  },
-  signs = true,     -- gutter icons
-  underline = true, -- underline errors
-  update_in_insert = true,
-  severity_sort = true,
-})
+--vim.diagnostic.config({
+--virtual_text = {
+-- prefix = "●",
+--spacing = 2,
+--},
+--signs = true,     -- gutter icons
+--underline = true, -- underline errors
+--update_in_insert = true,
+--severity_sort = true,
+--})

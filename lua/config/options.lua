@@ -28,4 +28,4 @@ opt.completeopt = "menu,menuone,noselect"
 
 vim.env.CC = "gcc"
 vim.env.CXX = "g++"
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = false })
