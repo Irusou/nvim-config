@@ -52,6 +52,10 @@ vim.lsp.config("roslyn", {
   },
 })
 
+vim.lsp.config('clangd', {
+  cmd = { "C:/msys64/ucrt64/bin/clangd.exe" },
+})
+
 vim.lsp.enable({
   "lua_ls",
   "ts_ls",
@@ -60,6 +64,7 @@ vim.lsp.enable({
   "jsonls",
   "emmet_language_server",
   "roslyn",
+  "clangd"
 })
 
 --vim.diagnostic.config({
