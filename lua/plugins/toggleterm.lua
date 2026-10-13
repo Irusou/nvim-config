@@ -7,6 +7,7 @@ return {
         direction = "horizontal",
         size = 20,
         start_in_insert = true,
+        shell = 'powershell',
       })
     end,
   }
