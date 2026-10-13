@@ -59,7 +59,7 @@ vim.lsp.enable({
   "gopls",
   "jsonls",
   "emmet_language_server",
-  "roslyn"
+  "roslyn",
 })
 
 --vim.diagnostic.config({
