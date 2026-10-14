@@ -13,6 +13,16 @@ vim.keymap.set('n', '<leader>fe', '<cmd>NvimTreeFocus<CR>', { desc = 'Focus nvim
 --vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true })
 vim.g.user_emmet_expandabbr_key = "<Tab>"
 
+-- move to start/end of line
+vim.keymap.set({ "n", "v" }, "H", "^")
+vim.keymap.set({ "n", "v" }, "L", "$")
+
+-- insert comments
+vim.keymap.set("n", "<C-_>", "gcc", { remap = true })
+vim.keymap.set("v", "<C-_>", "gc", { remap = true })
+vim.keymap.set("n", "<C-/>", "gcc", { remap = true })
+vim.keymap.set("v", "<C-/>", "gc", { remap = true })
+
 -- theme switcher keymaps
 local switcher = require("config.theme_switcher")
 vim.keymap.set("n", "<leader>tn", switcher.next_theme, { desc = "Next theme" })
