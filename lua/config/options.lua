@@ -1,4 +1,7 @@
 vim.g.mapleader = " "
+vim.env.CC = "gcc"
+vim.env.CXX = "g++"
+vim.diagnostic.config({ virtual_text = false })
 
 local opt = vim.opt
 
@@ -20,12 +23,11 @@ opt.signcolumn = "yes"
 opt.updatetime = 250
 opt.timeoutlen = 300
 
+opt.cursorline = true
+opt.cursorcolumn = true
+
 opt.splitright = true
 opt.splitbelow = true
 
 opt.clipboard = "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
-
-vim.env.CC = "gcc"
-vim.env.CXX = "g++"
-vim.diagnostic.config({ virtual_text = false })
