@@ -23,6 +23,8 @@ return {
             "package%-lock%.json",
             "yarn%.lock",
             "pnpm%-lock%.yaml",
+            "%.js%.map$",
+            "%.css%.map$",
 
             -- Java
             "target/",
