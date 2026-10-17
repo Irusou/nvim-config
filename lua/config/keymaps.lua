@@ -30,6 +30,7 @@ local switcher = require("config.theme_switcher")
 map("n", "<leader>tn", switcher.next_theme, { desc = "Next theme" })
 map("n", "<leader>tp", switcher.prev_theme, { desc = "Prev theme" })
 map("n", "<leader>tt", switcher.pick_theme, { desc = "Pick theme" })
+map("n", "<leader>tb", switcher.toggle_transparency, { desc = "Toggle transparency" })
 
 -- tabs
 map("n", "<leader><tab>n", "<cmd>tabnew<CR>", { desc = "New tab" })

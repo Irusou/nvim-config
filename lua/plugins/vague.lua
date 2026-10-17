@@ -32,7 +32,7 @@ return {
         plus = '#7fa563',
         delta = '#f3be7c',
       },
-      vim.cmd.colorscheme('vague')
     })
+    vim.cmd.colorscheme('vague')
   end
 }
