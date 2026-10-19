@@ -10,7 +10,7 @@ return {
       { desc = "Harpoon add file" })
     vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
       { desc = "Harpoon menu" })
-    vim.keymap.set("n", "<leader>hd", function() harpoon:list():remove() end,
+    vim.keymap.set("n", "<leader>hr", function() harpoon:list():remove() end,
       { desc = "Harpoon remove current file" })
     vim.keymap.set("n", "<leader>hc", function() harpoon:list():clear() end,
       { desc = "Harpoon clear list" })
