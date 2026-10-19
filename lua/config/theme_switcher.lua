@@ -4,16 +4,15 @@ local M = {}
 -- add themes after adding the plugin
 M.themes = {
   "catppuccin-latte",
-  "catppuccin-frappe",
-  "catppuccin-macchiato",
   "catppuccin-mocha",
   "vague",
   "bluloco-dark",
-  "bluloco-light",
   "moonfly",
   "kanagawa-wave",
-  "kanagawa-dragon",
-  "kanagawa-lotus",
+  "sora",
+  "vercel",
+  "oldworld",
+  "palenight",
 }
 
 M.current = 1
