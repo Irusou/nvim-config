@@ -5,12 +5,13 @@ return {
       local notify = require("notify")
       notify.setup({
         -- { default, minimal, simple, compact, wrapped-compact, wrapped-default },
-        render = "default",
+        render = "wrapped-compact",
         -- { fade_in_slide_out, fade, slide, static }
         stages = "slide",
         fps = 60,
         timeout = 2000,
         max_width = 80,
+        background_colour = "#000000",
       })
       vim.notify = notify
 

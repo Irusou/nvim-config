@@ -16,6 +16,12 @@ return {
               "fileformat",
               "filetype",
               "lsp_progress",
+              function() return require("noice").api.status.mode.get() end,
+              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+            },
+            {
+              function() return require("noice").api.status.command.get() end,
+              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
             },
           },
           icons_enabled = true,

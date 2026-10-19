@@ -139,10 +139,105 @@ function M.prev_theme()
   M.set_theme(M.themes[M.current])
 end
 
+---------------------------------------------------------------
+-- Floating picker with live preview
+---------------------------------------------------------------
 function M.pick_theme()
-  vim.ui.select(M.themes, { prompt = "Select theme:" }, function(choice)
-    if choice then M.set_theme(choice) end
-  end)
+  local original = vim.g.colors_name
+  local done = false
+
+  -- sizing
+  local width = 0
+  for _, t in ipairs(M.themes) do width = math.max(width, #t) end
+  width = math.max(width + 8, 30)
+  local height = #M.themes
+
+  -- content: " ●  name" for the active theme, "    name" for the rest
+  local lines, start_idx = {}, 1
+  for i, name in ipairs(M.themes) do
+    local active = name == original
+    if active then start_idx = i end
+    lines[i] = string.format(" %s  %s", active and "●" or " ", name)
+  end
+
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.bo[buf].modifiable = false
+  vim.bo[buf].bufhidden = "wipe"
+
+  -- color the active marker
+  local ns = vim.api.nvim_create_namespace("theme_picker")
+  for i, name in ipairs(M.themes) do
+    if name == original then
+      vim.api.nvim_buf_set_extmark(buf, ns, i - 1, 1, { end_col = 4, hl_group = "DiagnosticOk" })
+    end
+  end
+
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = width,
+    height = height,
+    row = math.floor((vim.o.lines - height) / 2) - 1,
+    col = math.floor((vim.o.columns - width) / 2),
+    style = "minimal",
+    border = "rounded",
+    title = " Themes ",
+    title_pos = "center",
+    footer = " <CR> select  <Esc> cancel ", -- needs Neovim 0.10+, delete these two lines on older versions
+    footer_pos = "center",
+  })
+  vim.wo[win].cursorline = true
+  vim.wo[win].winhighlight = "CursorLine:PmenuSel"
+  vim.api.nvim_win_set_cursor(win, { start_idx, 0 })
+
+  local function selected()
+    return M.themes[vim.api.nvim_win_get_cursor(win)[1]]
+  end
+
+  local function close()
+    if vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_win_close(win, true)
+    end
+  end
+
+  local function confirm()
+    done = true
+    local name = selected()
+    close()
+    M.set_theme(name)
+  end
+
+  local function cancel()
+    if done then return end
+    done = true
+    close()
+    if vim.g.colors_name ~= original then
+      pcall(vim.cmd.colorscheme, original)
+    end
+  end
+
+  -- live preview (doesn't save state)
+  local last = original
+  vim.api.nvim_create_autocmd("CursorMoved", {
+    buffer = buf,
+    callback = function()
+      local name = selected()
+      if name and name ~= last then
+        last = name
+        pcall(vim.cmd.colorscheme, name)
+      end
+    end,
+  })
+
+  -- clicking away or switching windows cancels
+  vim.api.nvim_create_autocmd("BufLeave", { buffer = buf, once = true, callback = cancel })
+
+  local map = function(key, fn)
+    vim.keymap.set("n", key, fn, { buffer = buf, nowait = true })
+  end
+  map("<CR>", confirm)
+  map("<Esc>", cancel)
+  map("q", cancel)
 end
 
 function M.load_theme()
