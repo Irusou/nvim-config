@@ -23,8 +23,8 @@ opt.signcolumn = "yes"
 opt.updatetime = 250
 opt.timeoutlen = 300
 
-opt.cursorline = true
-opt.cursorcolumn = true
+-- opt.cursorline = true
+-- opt.cursorcolumn = true
 
 opt.splitright = true
 opt.splitbelow = true
