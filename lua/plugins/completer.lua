@@ -4,7 +4,7 @@ return {
     version = "*",
     opts = {
       -- let noice own the cmdline popup and its menu
-      cmdline = { enabled = false },
+      cmdline = { enabled = true },
 
       keymap = {
         preset = "default",
@@ -21,10 +21,10 @@ return {
       completion = {
         menu = { border = "rounded" },
         documentation = {
-          auto_show = false,
+          auto_show = true,
           window = { border = "rounded" },
         },
-        ghost_text = { enabled = false },
+        ghost_text = { enabled = true },
       },
 
       sources = {
