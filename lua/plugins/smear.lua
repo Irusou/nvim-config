@@ -21,6 +21,6 @@ return {
 
     -- finer-grained rendering, needs a terminal that supports it
     -- (Kitty, WezTerm, Ghostty, Alacritty with a recent font setup)
-    legacy_computing_symbols_support = true,
+    legacy_computing_symbols_support = false,
   },
 }
