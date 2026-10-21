@@ -5,6 +5,8 @@ local M = {}
 M.themes = {
   "catppuccin-latte",
   "catppuccin-mocha",
+  "oh-lucy-evening",
+  "oh-lucy",
   "vague",
   "bluloco-dark",
   "moonfly",
