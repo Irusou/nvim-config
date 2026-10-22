@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.env.CC = "gcc"
 vim.env.CXX = "g++"
-vim.diagnostic.config({ virtual_text = false })
 
 local opt = vim.opt
 

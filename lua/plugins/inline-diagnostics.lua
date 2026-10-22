@@ -6,7 +6,7 @@ return {
     require("tiny-inline-diagnostic").setup({
       -- Choose a preset style for diagnostic appearance
       -- Available: "modern", "classic", "minimal", "powerline", "ghost", "simple", "nonerdfont", "amongus"
-      preset = "powerline",
+      preset = "simple",
       options = {
         show_source = {
           enabled = true,
@@ -24,14 +24,19 @@ return {
           -- all other severities only appear on the cursor line
           severity = {
             vim.diagnostic.severity.ERROR,
-            vim.diagnostic.severity.WARN,
-            vim.diagnostic.severity.INFO,
-            vim.diagnostic.severity.HINT,
+            -- vim.diagnostic.severity.WARN,
+            -- vim.diagnostic.severity.INFO,
+            -- vim.diagnostic.severity.HINT,
           },
         },
       }
     })
-    vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+    vim.diagnostic.config({
+      virtual_text = false,
+      underline = true,
+      signs = true,
+      update_in_insert = false,
+    }) -- Disable Neovim's default virtual text diagnostics
   end,
 
 }
