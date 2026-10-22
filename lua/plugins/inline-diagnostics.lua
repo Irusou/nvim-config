@@ -6,10 +6,10 @@ return {
     require("tiny-inline-diagnostic").setup({
       -- Choose a preset style for diagnostic appearance
       -- Available: "modern", "classic", "minimal", "powerline", "ghost", "simple", "nonerdfont", "amongus"
-      preset = "simple",
+      preset = "classic",
       options = {
         show_source = {
-          enabled = true,
+          enabled = false,
         },
         add_messages = {
           display_count = false,

@@ -15,6 +15,8 @@ M.themes = {
   "vercel",
   "oldworld",
   "palenight",
+  "ayu",
+  "togglebit"
 }
 
 M.current = 1
