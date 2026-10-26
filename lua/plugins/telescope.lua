@@ -9,16 +9,16 @@ return {
         defaults = {
           file_ignore_patterns = {
             -- VCS / editor
-            "^%.git/",
-            "%.idea/",
-            "%.vscode/",
+            "^%.git[/\\]",
+            "%.idea[/\\]",
+            "%.vscode[/\\]",
 
             -- JS / TS / React / Node
-            "node_modules/",
-            "dist/",
-            "build/",
-            "%.next/",
-            "coverage/",
+            "node_modules[/\\]",
+            "dist[/\\]",
+            "build[/\\]",
+            "%.next[/\\]",
+            "coverage[/\\]",
             "%.min%.js",
             "package%-lock%.json",
             "yarn%.lock",
@@ -26,42 +26,48 @@ return {
             "%.js%.map$",
             "%.css%.map$",
 
-            -- Java
-            "target/",
-            "%.gradle/",
+            -- Java / Rust
+            "target[/\\]",
+            "%.gradle[/\\]",
             "%.class$",
             "%.jar$",
-
-            -- Rust
-            "target/", -- shared with Java/Maven
             "Cargo%.lock",
 
             -- Go
-            "vendor/",
+            "vendor[/\\]",
 
             -- Python
-            "__pycache__/",
+            "__pycache__[/\\]",
             "%.pyc$",
-            "%.venv/",
-            "venv/",
-            "%.mypy_cache/",
-            "%.ruff_cache/",
-            "%.pytest_cache/",
-            "%.egg%-info/",
+            "%.venv[/\\]",
+            "venv[/\\]",
+            "%.mypy_cache[/\\]",
+            "%.ruff_cache[/\\]",
+            "%.pytest_cache[/\\]",
+            "%.egg%-info[/\\]",
 
             -- C
             "%.o$",
             "%.a$",
             "%.so$",
             "%.out$",
-            "%.cache/",
+            "%.cache[/\\]",
 
             -- C#
-            "bin/",
-            "obj/",
+            "bin[/\\]",
+            "obj[/\\]",
             "%.dll$",
             "%.exe$",
             "%.pdb$",
+          },
+          pickers = {
+            find_files = {
+              find_command = {
+                "fd", "--type", "f", "--hidden",
+                "--exclude", "node_modules",
+                "--exclude", ".git",
+              },
+            },
           },
         },
       })
@@ -70,7 +76,7 @@ return {
 
       vim.keymap.set("n", "<leader>ff", builtin.find_files)
       vim.keymap.set("n", "<leader>fa", function()
-        builtin.find_files({ hidden = true, no_ignore = true })
+        builtin.find_files({ hidden = true, no_ignore = true, file_ignore_patterns = {} })
       end)
       vim.keymap.set("n", "<leader>fg", builtin.live_grep)
       vim.keymap.set("n", "<leader>fb", builtin.buffers)
