@@ -6,9 +6,9 @@ return {
       require("lualine").setup({
         options = {
           theme = "auto",
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
           icons_enabled = true,
-          section_separators = "",
-          component_separators = "",
           globalstatus = true,
         },
         sections = {
