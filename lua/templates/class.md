@@ -18,7 +18,7 @@
 
 ## 💻 Code / Examples
 
-```
+```cs
 // paste snippets, syntax notes, or exercises here
 ```
 
