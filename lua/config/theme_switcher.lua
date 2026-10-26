@@ -16,6 +16,7 @@ M.themes = {
   "palenight",
   "ayu",
   "nordic",
+  "rose-pine",
   "togglebit",
 }
 
