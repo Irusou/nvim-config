@@ -21,19 +21,6 @@ local function read_file(path)
   return content
 end
 
-local function write_file(path, content)
-  local file = io.open(path, "w")
-
-  if not file then
-    return false
-  end
-
-  file:write(content)
-  file:close()
-
-  return true
-end
-
 local function get_templates()
   local templates = {}
   local stat = vim.uv.fs_stat(defaults.templates_dir)
