@@ -5,7 +5,6 @@ local M = {}
 M.themes = {
   "catppuccin-latte",
   "catppuccin-mocha",
-  "oh-lucy-evening",
   "oh-lucy",
   "vague",
   "bluloco-dark",
@@ -16,7 +15,8 @@ M.themes = {
   "oldworld",
   "palenight",
   "ayu",
-  "togglebit"
+  "nordic",
+  "togglebit",
 }
 
 M.current = 1
