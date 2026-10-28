@@ -1,0 +1,62 @@
+{
+  "if err": {
+    "prefix": "ie",
+    "body": ["if err != nil {", "\treturn ${1:err}", "}"]
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["func main() {", "\t$1", "}"]
+  },
+  "func": {
+    "prefix": "fn",
+    "body": ["func ${1:name}(${2}) ${3:error} {", "\t$4", "}"]
+  },
+  "method": {
+    "prefix": "meth",
+    "body": [
+      "func (${1:r} *${2:Type}) ${3:Name}(${4}) ${5:error} {",
+      "\t$6",
+      "}"
+    ]
+  },
+  "println": {
+    "prefix": "pl",
+    "body": ["fmt.Println($1)"]
+  },
+  "printf": {
+    "prefix": "pf",
+    "body": ["fmt.Printf(\"${1:%v}\\n\", $2)"]
+  },
+  "for range": {
+    "prefix": "fr",
+    "body": ["for ${1:i}, ${2:v} := range ${3:items} {", "\t$4", "}"]
+  },
+  "struct": {
+    "prefix": "st",
+    "body": ["type ${1:Name} struct {", "\t$2", "}"]
+  },
+  "interface": {
+    "prefix": "int",
+    "body": ["type ${1:Name} interface {", "\t$2", "}"]
+  },
+  "goroutine": {
+    "prefix": "gor",
+    "body": ["go func() {", "\t$1", "}()"]
+  },
+  "defer": {
+    "prefix": "df",
+    "body": ["defer ${1:func}()"]
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["func Test${1:Name}(t *testing.T) {", "\t$2", "}"]
+  },
+  "http handler": {
+    "prefix": "hh",
+    "body": [
+      "func ${1:handler}(w http.ResponseWriter, r *http.Request) {",
+      "\t$2",
+      "}"
+    ]
+  }
+}

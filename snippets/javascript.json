@@ -1,0 +1,105 @@
+{
+  "Console log": {
+    "prefix": "log",
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "Console log with label": {
+    "prefix": "clg",
+    "body": ["console.log({$1})"]
+  },
+  "useState": {
+    "prefix": ["useState", "ust"],
+    "body": ["const [${1:state}, ${2:setState}] = useState(${3:initialState})"],
+    "description": "React useState hook"
+  },
+  "useEffect": {
+    "prefix": ["useEffect", "uef"],
+    "body": ["useEffect(() => {", "\t$1", "}, [${2}])"]
+  },
+  "Import": {
+    "prefix": "imp",
+    "body": ["import ${2:thing} from '${1:module}'"]
+  },
+  "Named import": {
+    "prefix": "imn",
+    "body": ["import { $2 } from '${1:module}'"]
+  },
+  "forEach": {
+    "prefix": "fe",
+    "body": ["${1:array}.forEach((${2:item}) => {", "\t$3", "})"]
+  },
+  "map": {
+    "prefix": "map",
+    "body": ["${1:array}.map((${2:item}) => $3)"]
+  },
+  "filter": {
+    "prefix": "fil",
+    "body": ["${1:array}.filter((${2:item}) => $3)"]
+  },
+  "Arrow function": {
+    "prefix": "af",
+    "body": ["const ${1:name} = (${2}) => {", "\t$3", "}"]
+  },
+  "Async arrow function": {
+    "prefix": "aaf",
+    "body": ["const ${1:name} = async (${2}) => {", "\t$3", "}"]
+  },
+  "try/catch": {
+    "prefix": "tc",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:error}) {",
+      "\tconsole.error(${2:error})",
+      "}"
+    ]
+  },
+  "fetch": {
+    "prefix": "fet",
+    "body": [
+      "const ${1:res} = await fetch(${2:url})",
+      "const ${3:data} = await ${1:res}.json()"
+    ]
+  },
+  "Console error": {
+    "prefix": "cer",
+    "body": ["console.error($1)"]
+  },
+  "React component": {
+    "prefix": ["rafce", "rfc"],
+    "body": [
+      "const ${1:Component} = () => {",
+      "\treturn (",
+      "\t\t<div>$2</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${1:Component}"
+    ]
+  },
+  "setTimeout": {
+    "prefix": "st",
+    "body": ["setTimeout(() => {", "\t$1", "}, ${2:1000})"]
+  },
+  "addEventListener": {
+    "prefix": "ael",
+    "body": [
+      "${1:element}.addEventListener('${2:click}', (${3:e}) => {",
+      "\t$4",
+      "})"
+    ]
+  },
+  "querySelector": {
+    "prefix": "qs",
+    "body": ["document.querySelector('${1:selector}')"]
+  },
+  "TS interface": {
+    "prefix": "int",
+    "body": ["interface ${1:Name} {", "\t$2", "}"]
+  },
+  "TS type": {
+    "prefix": "type",
+    "body": ["type ${1:Name} = $2"]
+  }
+}

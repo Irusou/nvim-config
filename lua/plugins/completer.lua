@@ -2,8 +2,8 @@ return {
   {
     "saghen/blink.cmp",
     version = "*",
+    dependencies = { "rafamadriz/friendly-snippets" },
     opts = {
-      -- let noice own the cmdline popup and its menu
       cmdline = { enabled = true },
 
       keymap = {
@@ -28,7 +28,7 @@ return {
       },
 
       sources = {
-        default = { "lsp", "buffer", "path" },
+        default = { "lsp", "snippets", "buffer", "path" },
       },
     },
   },

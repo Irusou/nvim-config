@@ -1,0 +1,60 @@
+{
+  "println": {
+    "prefix": "pl",
+    "body": ["println!(\"${1:{}}\", $2);"]
+  },
+  "debug print": {
+    "prefix": "pd",
+    "body": ["println!(\"{:?}\", $1);"]
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": ["fn ${1:name}(${2}) ${3:-> ${4:()} }{", "\t$5", "}"]
+  },
+  "pub fn": {
+    "prefix": "pfn",
+    "body": ["pub fn ${1:name}(${2}) ${3:-> ${4:()} }{", "\t$5", "}"]
+  },
+  "struct": {
+    "prefix": "st",
+    "body": ["#[derive(Debug, Clone)]", "struct ${1:Name} {", "\t$2", "}"]
+  },
+  "impl": {
+    "prefix": "impl",
+    "body": ["impl ${1:Type} {", "\t$2", "}"]
+  },
+  "impl trait": {
+    "prefix": "implt",
+    "body": ["impl ${1:Trait} for ${2:Type} {", "\t$3", "}"]
+  },
+  "enum": {
+    "prefix": "en",
+    "body": ["#[derive(Debug)]", "enum ${1:Name} {", "\t$2", "}"]
+  },
+  "match": {
+    "prefix": "mat",
+    "body": ["match ${1:expr} {", "\t${2:pattern} => $3,", "\t_ => $4,", "}"]
+  },
+  "if let": {
+    "prefix": "il",
+    "body": ["if let ${1:Some(x)} = ${2:expr} {", "\t$3", "}"]
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["#[test]", "fn ${1:name}() {", "\t$2", "}"]
+  },
+  "test module": {
+    "prefix": "tmod",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "\tuse super::*;",
+      "",
+      "\t#[test]",
+      "\tfn ${1:name}() {",
+      "\t\t$2",
+      "\t}",
+      "}"
+    ]
+  }
+}
