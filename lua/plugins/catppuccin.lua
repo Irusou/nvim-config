@@ -28,7 +28,7 @@ return {
           comments = { "italic" }, -- Change the style of comments
           conditionals = { "italic" },
           loops = {},
-          functions = { "italic" },
+          functions = {},
           keywords = {},
           strings = {},
           variables = {},
@@ -55,7 +55,7 @@ return {
             ok = { "underline" },
           },
           inlay_hints = {
-            background = true,
+            background = false,
           },
         },
         color_overrides = {},
@@ -66,6 +66,10 @@ return {
           nvimtree = true,
           cmp = true,
           notift = true,
+          harpoon = true,
+          telescope = {
+            enabled = true
+          },
         },
       })
       vim.cmd.colorscheme("catppuccin-nvim")
