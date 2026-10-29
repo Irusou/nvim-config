@@ -84,5 +84,5 @@ map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { silent = true })
 -- Resize splits
 map("n", "<C-Up>", "<cmd>resize +2<CR>", { silent = true })
 map("n", "<C-Down>", "<cmd>resize -2<CR>", { silent = true })
-map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { silent = true })
-map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { silent = true })
+map("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { silent = true })
+map("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { silent = true })
