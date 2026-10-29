@@ -9,7 +9,7 @@ return {
         -- { fade_in_slide_out, fade, slide, static }
         stages = "slide",
         fps = 60,
-        timeout = 2000,
+        timeout = 3000,
         max_width = 80,
         background_colour = "#000000",
       })
