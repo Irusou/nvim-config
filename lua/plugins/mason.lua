@@ -20,9 +20,9 @@ return {
         "json-lsp",
         "lua-language-server",
         "prisma-language-server",
-        "python-lsp-server",
         "rust-analyzer",
         "typescript-language-server",
+        "pyright",
       },
     }
   },

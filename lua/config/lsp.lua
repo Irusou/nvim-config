@@ -8,6 +8,7 @@ require("mason-lspconfig").setup({
     "jsonls",
     "lua_ls",
     "emmet_language_server",
+    "pyright",
   },
 })
 
@@ -53,6 +54,11 @@ vim.lsp.config('clangd', {
   cmd = { "C:/msys64/ucrt64/bin/clangd.exe" },
 })
 
+vim.lsp.config("pyright", {
+  capabilities = capabilities,
+  filetypes = { "python" }
+})
+
 vim.lsp.enable({
   "lua_ls",
   "ts_ls",
@@ -61,16 +67,6 @@ vim.lsp.enable({
   "jsonls",
   "emmet_language_server",
   "roslyn",
-  "clangd"
+  "clangd",
+  "pyright"
 })
-
---vim.diagnostic.config({
---virtual_text = {
--- prefix = "●",
---spacing = 2,
---},
---signs = true,     -- gutter icons
---underline = true, -- underline errors
---update_in_insert = true,
---severity_sort = true,
---})
