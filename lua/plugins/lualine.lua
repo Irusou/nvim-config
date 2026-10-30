@@ -12,7 +12,8 @@ return {
           globalstatus = true,
         },
         sections = {
-          lualine_a = { { "mode", fmt = function(s) return s:sub(1, 1) end } },
+          -- lualine_a = { { "mode", fmt = function(s) return s:sub(1, 1) end } },
+          lualine_a = { "mode" },
           lualine_b = { { "branch", fmt = function(s) return #s > 15 and s:sub(1, 14) .. "…" or s end }, 'diff' },
           lualine_c = {
             {

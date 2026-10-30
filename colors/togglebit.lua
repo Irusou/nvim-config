@@ -96,6 +96,13 @@ hl("DiagnosticHint", { fg = c.green })
 hl("DiagnosticUnderlineError", { undercurl = true, sp = c.red })
 hl("DiagnosticUnderlineWarn", { undercurl = true, sp = c.yellow })
 
+-- render-markdown.nvim
+hl("RenderMarkdownCode", { bg = c.bg_dark })
+hl("RenderMarkdownCodeBorder", { bg = c.bg_dark })
+hl("RenderMarkdownCodeInfo", { fg = c.fg_dim, bg = c.bg_dark })
+hl("RenderMarkdownCodeFallback", { fg = c.fg_dim, bg = c.bg_dark })
+hl("RenderMarkdownCodeInline", { fg = c.func, bg = c.bg_dark })
+
 -- lualine theme, registered in memory (no extra file or folder needed)
 package.preload["lualine.themes.togglebit"] = function()
   local function mode(color)
