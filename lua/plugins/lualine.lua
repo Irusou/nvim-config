@@ -12,8 +12,8 @@ return {
           globalstatus = true,
         },
         sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diff' },
+          lualine_a = { { "mode", fmt = function(s) return s:sub(1, 1) end } },
+          lualine_b = { { "branch", fmt = function(s) return #s > 15 and s:sub(1, 14) .. "…" or s end }, 'diff' },
           lualine_c = {
             {
               "diagnostics",
@@ -23,11 +23,33 @@ return {
               update_in_insert = true,
               always_visible = false,
             },
-
           },
-          lualine_x = { 'encoding', 'filename', { 'filetype', icon_only = true } },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' }
+          lualine_x = {
+            {
+              function()
+                local text = require("gitblame").get_current_blame_text()
+                local max = math.floor(vim.o.columns * 0.25) -- scale with window width
+                return #text > max and text:sub(1, max - 1) .. "…" or text
+              end,
+              cond = function()
+                local ok, gb = pcall(require, "gitblame")
+                return ok and gb.is_blame_text_available() and vim.o.columns > 120
+              end,
+            },
+            { 'filename', path = 4 },
+          },
+          lualine_y = {
+            {
+              function()
+                local clients = vim.lsp.get_clients({ bufnr = 0 })
+                if #clients == 0 then return "" end
+                local names = {}
+                for _, c in ipairs(clients) do table.insert(names, c.name) end
+                return " " .. table.concat(names, ", ")
+              end,
+            }, { 'filetype', icon_only = true }
+          },
+          lualine_z = { { 'location', padding = 0 } }
         },
         inactive_sections = {
           lualine_a = {},

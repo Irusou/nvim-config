@@ -9,6 +9,7 @@ opt.relativenumber = true
 
 opt.tabstop = 2
 opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.expandtab = true
 opt.smartindent = true
 opt.autoindent = true
@@ -23,7 +24,7 @@ opt.signcolumn = "yes"
 opt.updatetime = 250
 opt.timeoutlen = 300
 
--- opt.cursorline = true
+opt.cursorline = true
 -- opt.cursorcolumn = true
 
 opt.splitright = true
