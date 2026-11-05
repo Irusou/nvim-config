@@ -9,6 +9,8 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "emmet_language_server",
     "pyright",
+    "html",
+    "cssls",
   },
 })
 
@@ -19,7 +21,17 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("ts_ls", {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+})
+
+vim.lsp.config("html", {
+  capabilities = capabilities,
+  init_options = {
+    provideFormatter = true,
+    embeddedLanguages = { css = true, javascript = true },
+    configurationSection = { "html", "css", "javascript" },
+  },
 })
 
 vim.lsp.config("rust_analyzer", {
@@ -35,7 +47,8 @@ vim.lsp.config("jsonls", {
 })
 
 vim.lsp.config("emmet_language_server", {
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", }
 })
 
 vim.lsp.config("roslyn", {
@@ -68,5 +81,7 @@ vim.lsp.enable({
   "emmet_language_server",
   "roslyn",
   "clangd",
-  "pyright"
+  "pyright",
+  "html",
+  "cssls",
 })
