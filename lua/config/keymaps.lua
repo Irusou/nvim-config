@@ -16,7 +16,8 @@ map("n", "<leader>\\", "<cmd>ToggleTerm<cr>")
 map("t", "<leader>\\", [[<C-\><C-n><cmd>ToggleTerm<cr>]])
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 map('n', '<leader>fe', '<cmd>NvimTreeFocus<CR>', { desc = 'Focus nvim-tree' })
-
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 vim.g.user_emmet_expandabbr_key = "<Tab>"
 
 -- move to start/end of line
@@ -31,36 +32,10 @@ map("v", "<C-/>", "gc", { remap = true })
 
 -- theme switcher keymaps
 local switcher = require("config.theme_switcher")
-map("n", "<leader>tn", switcher.next_theme, { desc = "Next theme" })
-map("n", "<leader>tp", switcher.prev_theme, { desc = "Prev theme" })
+-- map("n", "<leader>tn", switcher.next_theme, { desc = "Next theme" })
+-- map("n", "<leader>tp", switcher.prev_theme, { desc = "Prev theme" })
 map("n", "<leader>tt", switcher.pick_theme, { desc = "Pick theme" })
 map("n", "<leader>tb", switcher.toggle_transparency, { desc = "Toggle transparency" })
-
--- tabs
-map("n", "<leader><tab>n", "<cmd>tabnew<CR>", { desc = "New tab" })
-map("n", "<leader><tab>c", "<cmd>tabclose<CR>", { desc = "Close tab" })
-map("n", "<leader><tab>o", "<cmd>tabonly<CR>", { desc = "Close other tabs" })
-map("n", "<leader><tab>f", "<cmd>tabnew %<CR>", { desc = "Current buffer in new tab" })
-map("n", "<leader><tab>l", "<cmd>tabmove +1<CR>", { desc = "Move tab right" })
-map("n", "<leader><tab>h", "<cmd>tabmove -1<CR>", { desc = "Move tab left" })
-
--- Cycle tabs (Alt+h/l, since H/L are taken)
-map("n", "<A-l>", "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", "<A-h>", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
-map("n", "]t", "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
-
--- Jump to tab by number (Alt+1..9)
-for i = 1, 9 do
-  map("n", "<A-" .. i .. ">", i .. "gt", { desc = "Go to tab " .. i })
-end
-
--- buffers
-map("n", "]b", "<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "[b", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
-map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
-map("n", "<leader>bo", "<cmd>%bd|e#|bd#<CR>", { desc = "Close all other buffers" })
-map("n", "<leader><leader>", "<C-^>", { desc = "Toggle last buffer" })
 
 -- splits
 map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
@@ -86,3 +61,29 @@ map("n", "<C-Up>", "<cmd>resize +2<CR>", { silent = true })
 map("n", "<C-Down>", "<cmd>resize -2<CR>", { silent = true })
 map("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { silent = true })
 map("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { silent = true })
+
+-- tabs
+map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
+map("n", "<leader>tc", "<cmd>tabclose<CR>", { desc = "Close tab" })
+map("n", "<leader>to", "<cmd>tabonly<CR>", { desc = "Close other tabs" })
+map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Current buffer in new tab" })
+map("n", "<leader>tl", "<cmd>tabmove +1<CR>", { desc = "Move tab right" })
+map("n", "<leader>th", "<cmd>tabmove -1<CR>", { desc = "Move tab left" })
+
+-- Cycle tabs (Alt+h/l, since H/L are taken)
+map("n", "<A-l>", "<cmd>tabnext<CR>", { desc = "Next tab" })
+map("n", "<A-h>", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+map("n", "]t", "<cmd>tabnext<CR>", { desc = "Next tab" })
+map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+
+-- -- Jump to tab by number (Alt+1..9)
+-- for i = 1, 9 do
+--   map("n", "<A-" .. i .. ">", i .. "gt", { desc = "Go to tab " .. i })
+-- end
+
+-- buffers
+map("n", "]b", "<cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+map("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
+map("n", "<leader>bo", "<cmd>%bd|e#|bd#<CR>", { desc = "Close all other buffers" })
+map("n", "<leader><leader>", "<C-^>", { desc = "Toggle last buffer" })
