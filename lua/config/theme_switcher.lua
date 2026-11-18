@@ -11,13 +11,13 @@ M.themes = {
   "moonfly",
   "kanagawa-wave",
   "sora",
-  "vercel",
   "oldworld",
   "palenight",
   "ayu",
   "nordic",
   "rose-pine",
   "togglebit",
+  "kintsugi-flared",
 }
 
 M.current = 1
