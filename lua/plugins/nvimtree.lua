@@ -26,6 +26,16 @@ return {
         dotfiles = false,
         git_ignored = false,
       },
+      filesystem_watchers = {
+        enable = true,
+        ignore_dirs = {
+          "/.scala-build",
+          "/.bloop",
+          "/.metals",
+          "/.bsp",
+          "/target",
+        },
+      },
     })
   end,
 }
