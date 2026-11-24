@@ -18,6 +18,7 @@ M.themes = {
   "rose-pine",
   "togglebit",
   "kintsugi-flared",
+  "vscode",
 }
 
 M.current = 1
